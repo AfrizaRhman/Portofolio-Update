@@ -81,12 +81,19 @@
                     <div class="hero__content">
                         <h1 class="hero__title">Hi, I am Afriza</h1>
                         <h2 id="typewriter"
-                            style="font-size: 25px; font-weight: bold; color: #1e90ff; border-right: 2px solid #1e90ff; white-space: nowrap; overflow: hidden; display: inline-block;">
+                            style="font-size: 25px; font-weight: bold; color: white; border-right: 2px solid white; white-space: nowrap; overflow: hidden; display: inline-block;">
                         </h2>
-                        <p style="margin-top:15px;" class="hero__description">🌟 Saya adalah siswa SMK Wikrama Bogor jurusan Software & Game Development.
-                            🎓, Saya memiliki minat besar dalam pengembangan web dan telah mengerjakan berbagai proyek menggunakan teknologi seperti VueJS, Laravel, dan REST API. 💻.
-                            Saya mulai tertarik dengan dunia pemrograman sejak duduk di bangku SMK 👨‍💻,  Sejak saat itu, saya aktif mempelajari berbagai teknologi web dan membangun proyek-proyek seperti aplikasi perpustakaan digital dan sistem manajemen rumah sakit. 🌐. A quick learner and problem-solving enthusiast 🤔, driven by
-                            Dengan dasar pemahaman tentang frontend dan backend, saya terbiasa bekerja menggunakan Git, Postman, dan database MySQL 💡
+                        <p style="margin-top:15px;" class="hero__description">
+                            🌟 Saya adalah siswa SMK Wikrama Bogor jurusan Software & Game Development.
+                            🎓, Saya memiliki minat besar dalam pengembangan web dan telah mengerjakan berbagai proyek
+                            menggunakan teknologi seperti VueJS, Laravel, dan REST API. 💻.
+                            Saya mulai tertarik dengan dunia pemrograman sejak duduk di bangku SMK 👨‍💻.
+                            Sejak saat itu, saya aktif mempelajari berbagai teknologi web dan membangun proyek-proyek
+                            seperti
+                            aplikasi perpustakaan digital dan sistem manajemen rumah sakit. 🌐.
+                            A quick learner and problem-solving enthusiast 🤔.
+                            Dengan dasar pemahaman tentang frontend dan backend, saya terbiasa bekerja menggunakan Git,
+                            Postman, dan database MySQL 💡
                         </p>
                         <a href="mailto:shjz.dev@gmail.com" class="btn--primary"
                             style="padding:1.5rem 4rem;margin-bottom:10px;display:inline-block;">Hire Me!</a>
@@ -97,10 +104,28 @@
                             </div>
                         </div>
                     </div>
-                    <img src="assets/img/profile-pic1.png" alt="Hamza" class="hero__img">
+
+                    <!-- Gambar profil dengan id -->
+                    <img src="assets/img/profile-1.jpg" class="hero__img" id="profileImg">
                 </div>
             </div>
         </section>
+
+        <!-- Modal untuk Zoom -->
+        <div id="imgModal" class="img-modal">
+            <span class="close">&times;</span>
+            <div class="modal-content-wrapper">
+                <img class="img-modal-content" id="modalImg">
+
+                <!-- Kontrol Zoom -->
+                <div class="zoom-controls">
+                    <span id="zoomValue">100%</span>
+                    <button id="zoomOut">−</button>
+                    <button id="zoomIn">+</button>
+                    <button id="resetZoom" class="reset-btn">Reset</button>
+                </div>
+            </div>
+        </div>
         <!--=================== About ====================-->
         <section id="about" class="section about">
             <div class="container">
@@ -110,10 +135,17 @@
                 </div>
                 <div class="d-grid about__wrapper">
                     <div class="about__content">
-                        <h3 class="about__title">I'm a Front-end Developer.</h3>
-                        <p class="about__description">Front-End Developer adalah orang yang bertanggung jawab untuk membangun bagian depan (tampilan) dari sebuah website atau aplikasi web. Semua elemen yang bisa kita lihat dan klik di layar — seperti tombol, menu, form, warna, animasi — itu adalah hasil kerja dari front-end developer.
+                        <h3 class="about__title">I'm a Back-end Developer.</h3>
+                        <p class="about__description">Back-End Developer adalah orang yang bertanggung jawab untuk
+                            membangun dan mengelola bagian belakang (server) dari sebuah website atau aplikasi web.
+                            Semua proses yang terjadi di balik layar — seperti pengolahan data, penyimpanan informasi,
+                            autentikasi pengguna, dan komunikasi dengan database — adalah hasil kerja dari back-end
+                            developer.
 
-                            Mereka menerjemahkan desain (biasanya dari desainer UI/UX) menjadi kode nyata yang bisa ditampilkan di browser, sehingga user bisa berinteraksi dengan aplikasi secara visual.
+                            Mereka memastikan bahwa semua fitur yang dibuat di bagian depan dapat berfungsi dengan baik
+                            melalui sistem server yang stabil, aman, dan efisien. Back-end developer biasanya bekerja
+                            menggunakan bahasa pemrograman seperti Node.js, PHP, Python, atau Java, serta memanfaatkan
+                            basis data seperti MySQL, PostgreSQL, atau MongoDB untuk menyimpan dan mengelola data.
                         </p>
                         <a href="#project" class="btn btn--primary">Know More</a>
                     </div>
@@ -127,9 +159,9 @@
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
                                         PHP</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Node.js</li>
+                                        Type Script</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        MongoDB</li>
+                                        Python</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
                                         MySQL</li>
                                 </ul>
@@ -161,77 +193,133 @@
                     <span class="section__subtitle">Experience & Education</span>
                 </div>
                 <!--============== Professional Experience ============-->
-                <div class="qualification__wrapper">
-                    <h3 class="qualification__name">
+                <div class="qualification__wrapper-1">
+                    <h3 class="qualification__name-1">
                         <i class="ri-briefcase-fill"></i>
                         Professional Experience
                     </h3>
-                    <div class="d-grid qualification__content">
+                    <div class="d-grid qualification__content-1">
                         <!-- Experience 1-->
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Perpustakaan</h3>
-                            <p class="qualification__description"> Projek : Perpustakaan berbasis web <br> Peran : 
-                                Frontend Developer <br> Deskripsi : Membangun antarmuka pengguna yang responsif dan interaktif
+                        <div class="qualification__item-1">
+                            <h3 class="qualification__title-1">Perpustakaan</h3>
+                            <p class="qualification__description-1"> Projek : Perpustakaan berbasis web <br> Peran :
+                                Full Stack Developer <br> Deskripsi : Membangun antarmuka pengguna yang responsif dan
+                                interaktif
                                 menggunakan HTML, CSS, dan JavaScript. <br> Framework : VueJS, REST API
                             </p>
-                            <span class="qualification__date">Currently from 2024</span>
+                            <span class="qualification__date-1">Currently from 2024</span>
                         </div>
-                        <div class="qualification__item" style="margin-top: 20px;">
-                            <h3 class="qualification__title">Hospital Management</h3>
-                            <p class="qualification__description"> Projek : Hospital manajemen sistem <br>
-                                Peran : Full Stack Developer <br> Deskripsi : Membangun sistem manajemen rumah sakit yang efisien
-                                untuk mengelola data pasien, janji temu, dan rekam medis. <br> Framework : Laravel, REST API
+                        <div class="qualification__item-1">
+                            <h3 class="qualification__title-1">Hospital Management</h3>
+                            <p class="qualification__description-1"> Projek : Hospital manajemen sistem <br>
+                                Peran : Full Stack Developer <br> Deskripsi : Membangun sistem manajemen rumah sakit
+                                yang efisien
+                                untuk mengelola data pasien, janji temu, dan rekam medis. <br> Framework : Laravel, REST
+                                API
                             </p>
-                            <span class="qualification__date">Currently from 2025</span>
+                            <span class="qualification__date-1">Currently from 2025</span>
                         </div>
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Perpustakaan (Flutter)</h3>
-                            <p class="qualification__description"> Projek : Perpustakaan berbasis web <br> Peran : 
-                                Frontend Developer <br> Deskripsi : MMembangun antarmuka pengguna yang modern, responsif, dan lintas platform menggunakan widget Flutter dan bahasa Dart. <br> Framework : Flutter
+                        <div class="qualification__item-1">
+                            <h3 class="qualification__title-1">Peminjaman Leptop</h3>
+                            <p class="qualification__description-1"> Projek : Peminjaman Leptop Berbasis web <br> Peran
+                                :
+                                Full Stack Developer <br> Deskripsi :Membangun antarmuka pengguna yang interaktif,
+                                responsif, dan mudah digunakan menggunakan framework Vue.js, dengan memanfaatkan
+                                komponen dinamis serta state management untuk memastikan pengalaman pengguna yang
+                                optimal. <br>
+                                Framework : VueJs
                             </p>
-                            <span class="qualification__date">Currently from 2025</span>
+                            <span class="qualification__date-1">Currently from 2025</span>
+                        </div>
+                        <div class="qualification__item-1">
+                            <h3 class="qualification__title-1">Cuaca</h3>
+                            <p class="qualification__description-1"> Projek : Aplikasi Cuaca berbasis web <br> Peran :
+                                Front-end Developer <br> Deskripsi :Membangun antarmuka pengguna yang modern dan
+                                responsif untuk menampilkan informasi cuaca secara real-time.
+                                Mengintegrasikan API cuaca untuk mengambil data suhu, kelembapan, dan kondisi cuaca
+                                terkini. <br>
+                                Framework : VueJs
+                            </p>
+                            <span class="qualification__date-1">Currently from 2025</span>
                         </div>
                     </div>
                 </div>
                 <!--============== Education ============-->
-                <div class="qualification__wrapper">
-                    <h3 class="qualification__name">
+                <div class="qualification__wrapper-2">
+                    <h3 class="qualification__name-2">
                         <i class="ri-booklet-fill"></i>
                         Education
                     </h3>
-                    <div class="d-grid qualification__content">
+                    <div class="d-grid qualification__content-2">
                         <!-- Education 1-->
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Pengembangan Perangkat Lunak & Gim</h3>
-                            <h4 class="qualification__title">SDN Ciawi 01</h4>
-                            <p class="qualification__description"> SDN Ciawi 01 adalah salah satu sekolah dasar negeri yang berada di bawah naungan Dinas Pendidikan Kabupaten Bogor. Sekolah ini terletak di wilayah Kecamatan Ciawi, yang dikenal sebagai daerah strategis dekat dengan jalur menuju Puncak Bogor.
+                        <div class="qualification__item-2">
+                            <h4 class="qualification__title-2">SDN Ciawi 01</h4>
+                            <div class="qualification__image-2">
+                                <img src="assets/img/sdn.jpg" alt="SDN Ciawi 01" />
+                            </div>
+                            <p class="qualification__description-2">
+                                SDN Ciawi 01 adalah salah satu sekolah dasar negeri
+                                yang berada di bawah naungan Dinas Pendidikan Kabupaten Bogor. Sekolah ini terletak di
+                                wilayah Kecamatan Ciawi, yang dikenal sebagai daerah strategis dekat dengan jalur menuju
+                                Puncak Bogor.
                             </p>
-                            <span class="qualification__date">2014-2019</span>
+                            <button class="read-more-btn">Read More</button>
+
+                            <span class="qualification__date-2">2014-2019</span>
                         </div>
                         <!-- Education 2-->
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Pengembangan Perangkat Lunak & Gim</h3>
-                            <h4 class="qualification__title">SMP Amaliyah</h4>
-                            <p class="qualification__description"> SMP Amaliyah adalah sekolah menengah pertama swasta yang berlokasi di wilayah Ciawi, Kabupaten Bogor, Jawa Barat. Sekolah ini dikenal sebagai lembaga pendidikan yang menggabungkan pendidikan umum dengan pendidikan agama.
+                        <div class="qualification__item-2">
+                            <h4 class="qualification__title-2">SMP Amaliyah</h4>
+                            <p class="qualification__description-2">
+                                SMP Amaliyah adalah sekolah menengah pertama swasta
+                                yang berlokasi di wilayah Ciawi, Kabupaten Bogor, Jawa Barat. Sekolah ini dikenal
+                                sebagai lembaga pendidikan yang menggabungkan pendidikan umum dengan pendidikan agama.
                             </p>
-                            <span class="qualification__date">2020-2022</span>
+
+                            <div class="qualification__image-2">
+                                <img src="assets/img/smp.jpeg" alt="SDN Ciawi 01" />
+                            </div>
+
+                            <button class="read-more-btn">Read More</button>
+
+                            <span class="qualification__date-2">2020-2023</span>
                         </div>
                         <!-- Education 3-->
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Pengembangan Perangkat Lunak & Gim</h3>
-                            <h4 class="qualification__title">SMK Wikrama Bogor</h4>
-                            <p class="qualification__description"> SMK Wikrama Bogor adalah salah satu sekolah menengah kejuruan swasta unggulan yang berdiri sejak 1996, berada di bawah yayasan Prawitama dan Berlokasi di Jl. Raya Wangun, Sindangsari, Kota Bogor.
+                        <div class="qualification__item-2">
+                            <h4 class="qualification__title-2">SMK Wikrama Bogor</h4>
+                            <p class="qualification__description-2">
+                                SMK Wikrama Bogor adalah salah satu sekolah
+                                menengah
+                                kejuruan swasta unggulan yang berdiri sejak 1996, berada di bawah yayasan Prawitama dan
+                                Berlokasi di Jl. Raya Wangun, Sindangsari, Kota Bogor.
                             </p>
-                            <span class="qualification__date">2023-2026</span>
+
+                            <div class="qualification__image-2">
+                                <img src="assets/img/smk.jpeg" alt="SDN Ciawi 01" />
+                            </div>
+
+                            <button class="read-more-btn">Read More</button>
+
+                            <span class="qualification__date-2">2023-2026</span>
                         </div>
                     </div>
                 </div>
-                <div class="qualification__footer">
-                    <p class="qualification__footer-text">See my full resume</p>
+                <div class="qualification__footer-2">
+                    <p class="qualification__footer-text-2">See my full resume</p>
                     <a href="./assets/My Resume 1.pdf" download class="btn btn--primary">Resume</a>
                 </div>
             </div>
         </section>
+        <div id="readMoreModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3 id="modalTitle"></h3>
+                <h4 id="modalSubTitle"></h4>
+                <p id="modalDescription"></p>
+                <img id="modalImage" src="" alt="" />
+            </div>
+        </div>
+
 
         <!--=================== services ====================-->
         <section id="services" class="section services" style="padding: 80px 0; background-color: inherit;">
@@ -240,19 +328,6 @@
                     Services
                 </h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-                    <!-- Front-End Development -->
-                    <div
-                        style="background-color: black; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
-                        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-                            <i class="ri-layout-4-fill" style="font-size: 40px; color: #4299e1;"></i>
-                        </div>
-                        <h3
-                            style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
-                            Front-End Development
-                        </h3>
-                        <p style="color: #718096; text-align: center;">Seorang Front-End Developer bertugas sebagai pengembang tampilan antarmuka (user interface) dari sebuah website atau aplikasi web</p>
-                    </div>
-
                     <!-- UI/UX Design -->
                     <div
                         style="background-color: black; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
@@ -263,7 +338,9 @@
                             style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
                             UI/UX Design
                         </h3>
-                        <p style="color: #718096; text-align: center;">Seorang UI/UX Developer bertugas sebagai orang yang merancang dan membangun pengalaman dan tampilan pengguna dalam sebuah aplikasi atau website.</p>
+                        <p style="color: #718096; text-align: center;">Seorang UI/UX Developer bertugas sebagai orang
+                            yang merancang dan membangun pengalaman dan tampilan pengguna dalam sebuah aplikasi atau
+                            website.</p>
                     </div>
 
                     <!-- Full-Stack Projects -->
@@ -276,7 +353,9 @@
                             style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
                             Full-Stack Projects
                         </h3>
-                        <p style="color: #718096; text-align: center;">Seorang Fullstack Developer bertugas sebagai pengembang aplikasi web secara menyeluruh, yaitu menangani bagian front-end (tampilan) dan back-end (logika dan server) sekaligus.</p>
+                        <p style="color: #718096; text-align: center;">Seorang Fullstack Developer bertugas sebagai
+                            pengembang aplikasi web secara menyeluruh, yaitu menangani bagian front-end (tampilan) dan
+                            back-end (logika dan server) sekaligus.</p>
                     </div>
 
                     <!-- Mobile App Development -->
@@ -289,7 +368,9 @@
                             style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
                             Mobile App Development
                         </h3>
-                        <p style="color: #718096; text-align: center;">Seorang Android Developer bertugas sebagai pengembang aplikasi untuk perangkat yang menggunakan sistem operasi Android (seperti smartphone, tablet, atau wearable).</p>
+                        <p style="color: #718096; text-align: center;">Seorang Android Developer bertugas sebagai
+                            pengembang aplikasi untuk perangkat yang menggunakan sistem operasi Android (seperti
+                            smartphone, tablet, atau wearable).</p>
                     </div>
                 </div>
             </div>
@@ -310,8 +391,11 @@
                         <a href="https://github.com/AfrizaRhman/Perpustakan-Consume-Api" class="project__link">
                             <h3 class="project__title">Perpustakaan</h3>
                         </a>
-                        <p class="project__description">web perpustakaan ini merupakan aplikasi berbasis web yang dikembangkan menggunakan framework Vue.js untuk membantu pengelolaan aktivitas perpustakaan secara digital dan efisien. 💰</p>
-                        <a href="https://github.com/AfrizaRhman/Perpustakan-Consume-Api" class="project__link">View Project
+                        <p class="project__description">web perpustakaan ini merupakan aplikasi berbasis web yang
+                            dikembangkan menggunakan framework Vue.js untuk membantu pengelolaan aktivitas perpustakaan
+                            secara digital dan efisien. 💰</p>
+                        <a href="https://github.com/AfrizaRhman/Perpustakan-Consume-Api" class="project__link">View
+                            Project
                             <i class="ri-arrow-right-line"></i></a>
                     </div>
                     <!--============== project 2 =============-->
@@ -320,7 +404,9 @@
                         <a href="https://github.com/AfrizaRhman/Projek-Flutter" class="project__link">
                             <h3 class="project__title">Perpustakaan</h3>
                         </a>
-                        <p class="project__description">Web perpustakaan ini dibuat menggunakan framework Flutter yang lebih unggul dalam membuat aplikasi lintas platform dengan tampilan antarmuka yang konsisten dan interaktif menggunakan bahasa Dart.</p>
+                        <p class="project__description">Web perpustakaan ini dibuat menggunakan framework Flutter yang
+                            lebih unggul dalam membuat aplikasi lintas platform dengan tampilan antarmuka yang konsisten
+                            dan interaktif menggunakan bahasa Dart.</p>
                         <a href="https://github.com/AfrizaRhman/Projek-Flutter" class="project__link">View Project
                             <i class="ri-arrow-right-line"></i></a>
                     </div>
@@ -330,7 +416,9 @@
                         <a href="https://github.com/AfrizaRhman/INVENTARIS" class="project__link">
                             <h3 class="project__title">Peminjaman Leptop</h3>
                         </a>
-                        <p class="project__description">Web peminjaman laptop ini merupakan aplikasi berbasis web yang dikembangkan menggunakan framework Vue.js untuk mempermudah proses pencatatan dan pengelolaan peminjaman laptop di lingkungan sekolah, kampus, atau instansi.</p>
+                        <p class="project__description">Web peminjaman laptop ini merupakan aplikasi berbasis web yang
+                            dikembangkan menggunakan framework Vue.js untuk mempermudah proses pencatatan dan
+                            pengelolaan peminjaman laptop di lingkungan sekolah, kampus, atau instansi.</p>
                         <a href="https://github.com/HamzaZaidiX/Nike-Landing-Page" class="project__link">View Project
                             <i class="ri-arrow-right-line"></i></a>
                     </div>
@@ -340,7 +428,9 @@
                         <a href="https://github.com/AfrizaRhman/Hospital-Apps" class="project__link">
                             <h3 class="project__title">Hospital Management</h3>
                         </a>
-                        <p class="project__description">Web Hospital Management System ini adalah aplikasi manajemen rumah sakit yang dikembangkan menggunakan framework Laravel, sebuah framework PHP yang powerful dan aman untuk pengembangan aplikasi web skala besar.</p>
+                        <p class="project__description">Web Hospital Management System ini adalah aplikasi manajemen
+                            rumah sakit yang dikembangkan menggunakan framework Laravel, sebuah framework PHP yang
+                            powerful dan aman untuk pengembangan aplikasi web skala besar.</p>
                         <a href="https://github.com/AfrizaRhman/Hospital-Apps" class="project__link">View Project
                             <i class="ri-arrow-right-line"></i></a>
                     </div>
@@ -350,7 +440,9 @@
                         <a href="#" class="project__link">
                             <h3 class="project__title">Cuaca</h3>
                         </a>
-                        <p class="project__description">Web cuaca ini merupakan aplikasi berbasis web yang dibangun menggunakan framework Vue.js untuk menampilkan informasi cuaca secara real-time dan interaktif berdasarkan lokasi pengguna atau pencarian kota tertentu.</p>
+                        <p class="project__description">Web cuaca ini merupakan aplikasi berbasis web yang dibangun
+                            menggunakan framework Vue.js untuk menampilkan informasi cuaca secara real-time dan
+                            interaktif berdasarkan lokasi pengguna atau pencarian kota tertentu.</p>
                         <a href="#" class="project__link">View Project
                             <i class="ri-arrow-right-line"></i></a>
                     </div>
@@ -377,12 +469,13 @@
                     <div class="contact__content">
                         <h2 class="contact__title">Contact Me</h2>
                         <p class="contact__description">
-                            Phone : 081398933216 <br> Email : mafrizar1@gmail.com <br> Alamat : Ciawi, Kec.Ciawi, Kab.Bogor <br>
+                            Phone : 081398933216 <br> Email : mafrizar1@gmail.com <br> Alamat : Ciawi, Kec.Ciawi,
+                            Kab.Bogor <br>
                         </p>
                     </div>
                     <div class="contact__btn">
-                        <a style="align-items:center; gap:10px; text-align:center;"
-                            href="https://www.linkedin.com/in/shjz" class="btn btn--secondary">Get in touch
+                        <a style="align-items:center; gap:10px; text-align:center;" href="#"
+                            class="btn btn--secondary">Get in touch
                             <i class="fa-solid fa-handshake"></i></a>
                     </div>
                 </div>
@@ -399,25 +492,25 @@
                     <h4 class="footer__title">Follow Me</h4>
                     <ul class="footer__social-list">
                         <li class="footer__social-item">
-                            <a href="mailto:mafrizar1@gmail.com" target="_blank" class="footer__social-link">
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mafrizar1@gmail.com" target="_blank"
+                                rel="noopener noreferrer" class="footer__social-link">
                                 <i class="fa-regular fa-envelope fa-beat-fade"></i>
                             </a>
                         </li>
 
                         <li class="footer__social-item">
-                            <a href="https://wa.me/+6281398933216"
-                                target="_blank" class="footer__social-link">
+                            <a href="https://wa.me/+6281398933216" target="_blank" class="footer__social-link">
                                 <i class="fa-brands fa-whatsapp fa-beat-fade"></i>
                             </a>
                         </li>
                         <li class="footer__social-item">
-                            <a href="https://www.instagram.com/_afrzarhmn" target="_blank"
-                                class="footer__social-link">
+                            <a href="https://www.instagram.com/_afrzarhmn" target="_blank" class="footer__social-link">
                                 <i class="fa-brands fa-instagram fa-beat-fade"></i>
                             </a>
                         </li>
                         <li class="footer__social-item">
-                            <a href="https://www.linkedin.com/in/muhamadafriza-rahman" target="_blank" class="footer__social-link">
+                            <a href="https://www.linkedin.com/in/muhamadafriza-rahman" target="_blank"
+                                class="footer__social-link">
                                 <i class="fa-brands fa-linkedin-in fa-beat-fade"></i>
                             </a>
                         </li>
@@ -446,11 +539,128 @@
 </html>
 
 <script>
+    //modal detail
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('readMoreModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubTitle = document.getElementById('modalSubTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.close-btn');
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
+
+        // Fungsi toggle visibility tombol Read More berdasarkan lebar layar
+        function toggleReadMoreButtons() {
+            const isMobile = window.innerWidth <= 768;
+            readMoreButtons.forEach(btn => {
+                btn.style.display = isMobile ? 'inline-block' : 'none';
+            });
+        }
+
+        // Jalankan saat pertama kali halaman dimuat
+        toggleReadMoreButtons();
+
+        // Jalankan ulang saat resize agar tombol Read More muncul/hilang sesuai lebar layar
+        window.addEventListener('resize', toggleReadMoreButtons);
+
+        function openModal(item) {
+            modalTitle.textContent = item.querySelector('.qualification__title-2').textContent;
+            modalSubTitle.textContent = item.querySelector('h4').textContent;
+            modalDescription.textContent = item.querySelector('.qualification__description-2').textContent;
+            modalImage.src = item.querySelector('.qualification__image-2 img').src;
+            modalImage.alt = item.querySelector('h4').textContent;
+
+            // Tampilkan modal dengan animasi
+            modal.style.display = 'flex';
+            requestAnimationFrame(() => {
+                modal.classList.remove('hide');
+                modal.classList.add('show');
+            });
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            modal.classList.add('hide');
+        }
+
+        readMoreButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.qualification__item-2');
+                openModal(item);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+
+        window.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+
+        modal.addEventListener('transitionend', e => {
+            if (e.target === modal && modal.classList.contains('hide')) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+
+    //zoom modal
+    const modal = document.getElementById("imgModal");
+    const img = document.getElementById("profileImg");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+    const zoomInBtn = document.getElementById("zoomIn");
+    const zoomOutBtn = document.getElementById("zoomOut");
+    const resetBtn = document.getElementById("resetZoom");
+    const zoomValueText = document.getElementById("zoomValue");
+
+    let zoomLevel = 1;
+
+    function updateZoom() {
+        modalImg.style.transform = `scale(${zoomLevel})`;
+        zoomValueText.textContent = `${Math.round(zoomLevel * 100)}%`;
+    }
+
+    img.addEventListener("click", function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        zoomLevel = 1;
+        updateZoom();
+    });
+
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    zoomInBtn.addEventListener("click", function () {
+        zoomLevel += 0.1;
+        updateZoom();
+    });
+
+    zoomOutBtn.addEventListener("click", function () {
+        if (zoomLevel > 0.2) {
+            zoomLevel -= 0.1;
+            updateZoom();
+        }
+    });
+
+    resetBtn.addEventListener("click", function () {
+        zoomLevel = 1;
+        updateZoom();
+    });
+
+    // Typewriter effect for the hero section
     const typewriterTexts = [
-      "Frontend Web Developer",
-      "Software Engineer",
-      "Full Stack Developer",
-      "Creative Problem Solver",
+        "Frontend Web Developer",
+        "Software Engineer",
+        "Full Stack Developer",
+        "Creative Problem Solver",
     ];
 
     let currentTextIndex = 0;
@@ -459,25 +669,25 @@
     const typewriterElement = document.getElementById("typewriter");
 
     function typeEffect() {
-      // Get the current text
-      const currentText = typewriterTexts[currentTextIndex];
+        // Get the current text
+        const currentText = typewriterTexts[currentTextIndex];
 
-      // Update the text content with the next character
-      typewriterElement.textContent = currentText.slice(0, charIndex);
+        // Update the text content with the next character
+        typewriterElement.textContent = currentText.slice(0, charIndex);
 
-      // Increment the character index
-      charIndex++;
+        // Increment the character index
+        charIndex++;
 
-      // If the full text has been typed, pause and then switch to the next text
-      if (charIndex > currentText.length) {
-        setTimeout(() => {
-          charIndex = 0; // Reset character index
-          currentTextIndex = (currentTextIndex + 1) % typewriterTexts.length; // Move to next text
-        }, 2000); // Pause before switching
-      }
+        // If the full text has been typed, pause and then switch to the next text
+        if (charIndex > currentText.length) {
+            setTimeout(() => {
+                charIndex = 0; // Reset character index
+                currentTextIndex = (currentTextIndex + 1) % typewriterTexts.length; // Move to next text
+            }, 2000); // Pause before switching
+        }
 
-      // Continue typing every 100ms
-      setTimeout(typeEffect, 100);
+        // Continue typing every 100ms
+        setTimeout(typeEffect, 100);
     }
 
     // Start the typewriter effect
