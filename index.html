@@ -86,14 +86,13 @@
                         <p style="margin-top:15px;" class="hero__description">
                             🌟 Saya adalah siswa SMK Wikrama Bogor jurusan Software & Game Development.
                             🎓, Saya memiliki minat besar dalam pengembangan web dan telah mengerjakan berbagai proyek
-                            menggunakan teknologi seperti VueJS, Laravel, dan REST API. 💻.
+                            menggunakan Framework dan bahasa seperti VueJS, Laravel, React, NestJs, TypeScript dan REST API. 💻.
                             Saya mulai tertarik dengan dunia pemrograman sejak duduk di bangku SMK 👨‍💻.
                             Sejak saat itu, saya aktif mempelajari berbagai teknologi web dan membangun proyek-proyek
                             seperti
-                            aplikasi perpustakaan digital dan sistem manajemen rumah sakit. 🌐.
-                            A quick learner and problem-solving enthusiast 🤔.
+                            aplikasi perpustakaan digital dan sistem manajemen rumah sakit.
                             Dengan dasar pemahaman tentang frontend dan backend, saya terbiasa bekerja menggunakan Git,
-                            Postman, dan database MySQL 💡
+                            Postman, dan database MySQL,PostgreSQL, dan Supabase serta terbiasa dalam kerja sama tim. 💡
                         </p>
                         <a href="mailto:shjz.dev@gmail.com" class="btn--primary"
                             style="padding:1.5rem 4rem;margin-bottom:10px;display:inline-block;">Hire Me!</a>
@@ -106,7 +105,7 @@
                     </div>
 
                     <!-- Gambar profil dengan id -->
-                    <img src="assets/img/profile-1.jpg" class="hero__img" id="profileImg">
+                    <img src="assets/img/profile-1.jpeg" class="hero__img" id="profileImg">
                 </div>
             </div>
         </section>
@@ -144,7 +143,7 @@
 
                             Mereka memastikan bahwa semua fitur yang dibuat di bagian depan dapat berfungsi dengan baik
                             melalui sistem server yang stabil, aman, dan efisien. Back-end developer biasanya bekerja
-                            menggunakan bahasa pemrograman seperti Node.js, PHP, Python, atau Java, serta memanfaatkan
+                            menggunakan bahasa pemrograman seperti PHP, Python, atau JavaScript, serta memanfaatkan
                             basis data seperti MySQL, PostgreSQL, atau MongoDB untuk menyimpan dan mengelola data.
                         </p>
                         <a href="#project" class="btn btn--primary">Know More</a>
@@ -161,22 +160,22 @@
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
                                         Type Script</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Python</li>
+                                        JavaScript</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        MySQL</li>
+                                        Python(Baru Belajar)</li>
                                 </ul>
                             </div>
                             <div class="skills__content">
                                 <h4 class="skills__subtitle">Frontend</h4>
                                 <ul class="skills__list">
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        HTML</li>
+                                        HTML & CSS</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        CSS</li>
+                                        React</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        JavaScript</li>
+                                        VueJS</li>
                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Bootstrap</li>
+                                        UX </li>
                                 </ul>
                             </div>
                         </div>
@@ -313,7 +312,6 @@
         <div id="readMoreModal" class="modal">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
-                <h3 id="modalTitle"></h3>
                 <h4 id="modalSubTitle"></h4>
                 <p id="modalDescription"></p>
                 <img id="modalImage" src="" alt="" />
@@ -336,11 +334,9 @@
                         </div>
                         <h3
                             style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
-                            UI/UX Design
+                            UX Design
                         </h3>
-                        <p style="color: #718096; text-align: center;">Seorang UI/UX Developer bertugas sebagai orang
-                            yang merancang dan membangun pengalaman dan tampilan pengguna dalam sebuah aplikasi atau
-                            website.</p>
+                        <p style="color: #718096; text-align: center;">UX (User Experience) Designer punya tugas utama memastikan pengguna merasa nyaman, mudah, dan puas saat memakai sebuah produk digital (website, aplikasi, sistem, dll). Bukan cuma soal tampilan, tapi pengalaman keseluruhan pengguna.</p>
                     </div>
 
                     <!-- Full-Stack Projects -->
@@ -542,7 +538,6 @@
     //modal detail
     document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('readMoreModal');
-        const modalTitle = document.getElementById('modalTitle');
         const modalSubTitle = document.getElementById('modalSubTitle');
         const modalDescription = document.getElementById('modalDescription');
         const modalImage = document.getElementById('modalImage');
@@ -564,7 +559,6 @@
         window.addEventListener('resize', toggleReadMoreButtons);
 
         function openModal(item) {
-            modalTitle.textContent = item.querySelector('.qualification__title-2').textContent;
             modalSubTitle.textContent = item.querySelector('h4').textContent;
             modalDescription.textContent = item.querySelector('.qualification__description-2').textContent;
             modalImage.src = item.querySelector('.qualification__image-2 img').src;
