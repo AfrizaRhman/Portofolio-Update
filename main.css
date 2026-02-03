@@ -239,6 +239,7 @@ body {
   color: var(--color-primary);
 }
 
+
 @media screen and (max-width: 968px) {
   .nav__list {
     flex-direction: column;
