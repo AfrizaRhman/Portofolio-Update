@@ -42,6 +42,354 @@
   --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Light Theme Styles */
+.light-theme {
+  /* Colors for light theme */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-footer: #f0f0f0;
+  --color-white: #333333; /* Changed to dark for text in light theme */
+  --color-text: #333333;
+  --color-border: #e0e0e0;
+  
+  /* Adjust primary colors for better contrast in light theme */
+  --color-primary: #208c61;
+  --color-primary-dark: #176b48;
+}
+
+/* Dark Theme Styles (default) */
+:root {
+  /* Colors for dark theme */
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #242424;
+  --color-bg-footer: #151515;
+  --color-white: #ffffff;
+  --color-text: #a1a1a1; /* Changed to your requested color */
+  --color-border: #373737;
+  --color-primary: #25ab75;
+  --color-primary-dark: #208c61;
+}
+
+/* Header styles for themes */
+.light-theme .header {
+  background-color: var(--color-bg-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .header--scroll {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text color adjustments for light theme */
+.light-theme .nav__brand,
+.light-theme .nav__toggle,
+.light-theme .nav__link,
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme .hero__info-number,
+.light-theme .qualification__date-2,
+.light-theme .footer__social-link,
+.light-theme .footer__contact,
+.light-theme .testimonial__description,
+.light-theme .project__title,
+.light-theme .qualification__footer-text-1,
+.light-theme .qualification__footer-text-2,
+.light-theme .service__title,
+.light-theme .skills__title,
+.light-theme .section__title {
+  color: var(--color-text);
+}
+
+.light-theme .nav__brand i {
+  color: var(--color-primary);
+}
+
+.light-theme .nav__link:hover {
+  color: var(--color-primary);
+}
+
+.light-theme .hero__title::after,
+.light-theme .section__subtitle::after {
+  background-color: var(--color-primary);
+}
+
+/* Typewriter color */
+#typewriter {
+  color: var(--color-white); /* Default white for dark theme */
+  display: block;
+  min-height: 30px;
+}
+
+.light-theme #typewriter {
+  color: var(--color-text); /* Dark color for light theme */
+}
+
+/* Service cards */
+.light-theme .service__card {
+  background-color: var(--color-bg-secondary);
+}
+
+.light-theme .service__card:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.light-theme .service__card:hover .service__title,
+.light-theme .service__card:hover .service__description {
+  color: #ffffff;
+}
+
+.light-theme .service__icon {
+  color: var(--color-primary);
+}
+
+.light-theme .service__card:hover .service__icon {
+  color: #ffffff;
+}
+
+/* Cards and content */
+.light-theme .skills__content,
+.light-theme .testimonial__card,
+.light-theme .project__content {
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .qualification__name-1,
+.light-theme .qualification__name-2,
+.light-theme .qualification__item-2,
+.light-theme .qualification__item-1 {
+  color: var(--color-text);
+}
+
+/* Buttons */
+.light-theme .btn--secondary {
+  background-color: var(--color-text);
+  color: var(--color-bg-primary);
+}
+
+.light-theme .btn--secondary:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Footer */
+.light-theme .footer {
+  background-color: var(--color-bg-footer);
+}
+
+.light-theme .footer__wrapper {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.light-theme .footer__social-link:hover,
+.light-theme .footer__contact:hover {
+  color: var(--color-primary);
+}
+
+/* Scrollbar */
+.light-theme ::-webkit-scrollbar {
+  background-color: var(--color-bg-secondary);
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+}
+
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary);
+}
+
+/* Theme Toggle Button Styles */
+#theme-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-lg);
+  color: var(--color-white);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  margin-left: 2rem;
+  background-color: var(--color-bg-secondary);
+}
+
+.light-theme #theme-button {
+  color: var(--color-text);
+  background-color: var(--color-bg-secondary);
+}
+
+#theme-button:hover {
+  color: var(--color-primary);
+  background-color: rgba(37, 171, 117, 0.2);
+}
+
+.light-theme #theme-button:hover {
+  background-color: rgba(37, 171, 117, 0.3);
+}
+
+/* Modal styling for light theme */
+.light-theme .modal-content {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.light-theme .close-btn {
+  color: var(--color-text);
+}
+
+.light-theme .close-btn:hover {
+  color: var(--color-primary);
+}
+
+.light-theme .img-modal-content {
+  border: 2px solid var(--color-border);
+}
+
+.light-theme .zoom-controls {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+}
+
+.light-theme .zoom-controls span {
+  color: var(--color-text);
+}
+
+.light-theme .zoom-controls button {
+  color: var(--color-text);
+}
+
+.light-theme .zoom-controls button:hover {
+  background-color: rgba(37, 171, 117, 0.1);
+}
+
+.light-theme .reset-btn {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.light-theme .reset-btn:hover {
+  background-color: rgba(37, 171, 117, 0.1);
+}
+
+/* Adjust qualification sections for light theme */
+.light-theme .qualification__name-1,
+.light-theme .qualification__name-2 {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.light-theme .qualification__footer-1,
+.light-theme .qualification__footer-2 {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Adjust read more button for light theme */
+.light-theme .read-more-btn {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.light-theme .read-more-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Hero image adjustments for light theme */
+.light-theme .hero__img {
+  border: 3px solid var(--color-border);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Update the existing styles to use CSS variables properly */
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile menu adjustments for theme */
+@media screen and (max-width: 968px) {
+  .light-theme .nav__menu {
+    background-color: var(--color-bg-primary);
+  }
+  
+  .light-theme .nav__link {
+    color: var(--color-text);
+  }
+  
+  .light-theme .nav__link:hover {
+    color: var(--color-primary);
+  }
+  
+  #theme-button {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+  }
+}
+
+/* Ensure theme button is visible in mobile menu */
+@media screen and (min-width: 969px) {
+  .nav__list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+}
+
+/* Additional theme adjustments */
+.light-theme .hero__description,
+.light-theme .about__description,
+.light-theme .contact__description,
+.light-theme .footer__copyright,
+.light-theme .testimonial__occupation,
+.light-theme .project__description,
+.light-theme .skills__subtitle,
+.light-theme .qualification__title-1,
+.light-theme .qualification__title-2,
+.light-theme .qualification__description-1,
+.light-theme .qualification__description-2 {
+  color: var(--color-text);
+}
+
+.light-theme .hero__info-title {
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.light-theme .skills__item {
+  color: var(--color-text);
+}
+
+/* Image modal background */
+.light-theme .img-modal {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ensure proper contrast for all elements */
+.light-theme *::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.light-theme .section__subtitle {
+  color: var(--color-text);
+}
+
 /* CSS Reset
   --------------------------------------------------------------*/
 *,
@@ -172,6 +520,70 @@ body {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
+
+/* =====================
+   CERTIFICATE SECTION
+===================== */
+.certificate__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.certificate__item {
+  background-color: #111111;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.certificate__item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Hover effect */
+.certificate__item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================
+   LIGHT THEME SUPPORT
+===================== */
+body.light-theme .certificate__item {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+}
+
+body.light-theme .certificate__item:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 1024px) {
+  .certificate__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .certificate__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate__item img {
+    height: 180px;
+  }
+}
+
 
 /* Header
   --------------------------------------------------------------*/
