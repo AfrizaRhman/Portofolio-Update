@@ -488,41 +488,34 @@
                         <img src="assets/img/sertifikat_course_169_3477643_130824095047-1.png" alt="Certificate 4">
                     </div>
 
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-1.png" alt="Certificate 5">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-2.png" alt="Certificate 6">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-3.png" alt="Certificate 7">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-4.png" alt="Certificate 8">
-                    </div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-1.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-2.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-3.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-4.png"></div>
 
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-5.png" alt="Certificate 9">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-6.png" alt="Certificate 10">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-7.png" alt="Certificate 11">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-8.png" alt="Certificate 12">
-                    </div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-5.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-6.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-7.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-8.png"></div>
 
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-9.png" alt="Certificate 13">
-                    </div>
-                    <div class="certificate__item">
-                        <img src="assets/img/wahdani-10.png" alt="Certificate 14">
-                    </div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-9.png"></div>
+                    <div class="certificate__item"><img src="assets/img/wahdani-10.png"></div>
                 </div>
             </div>
         </section>
+
+        <!--=================== MODAL ====================-->
+        <div class="certificate__modal" id="certificateModal">
+            <i class="fa-solid fa-xmark modal__close"></i>
+
+            <div class="modal__controls">
+                <button id="zoomIn"><i class="fa-solid fa-plus"></i></button>
+                <button id="zoomOut"><i class="fa-solid fa-minus"></i></button>
+            </div>
+
+            <img id="modalImage" src="" alt="Certificate Preview">
+        </div>
+
 
 
         </div>
@@ -609,6 +602,55 @@
 </html>
 
 <script>
+
+    // Click image sertifikat
+    const modal = document.getElementById("certificateModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.querySelector(".modal__close");
+    const zoomIn = document.getElementById("zoomIn");
+    const zoomOut = document.getElementById("zoomOut");
+
+    let scale = 1;
+
+    document.querySelectorAll(".certificate__item").forEach(item => {
+        item.addEventListener("click", () => {
+            const img = item.querySelector("img");
+
+            modal.classList.add("active");
+            modalImg.src = img.getAttribute("src"); // 🔥 FIX
+            modalImg.style.transform = "scale(1)";
+            scale = 1;
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+        modalImg.src = "";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+            modalImg.src = "";
+        }
+    });
+
+    zoomIn.addEventListener("click", () => {
+        scale += 0.2;
+        modalImg.style.transform = `scale(${scale})`;
+    });
+
+    zoomOut.addEventListener("click", () => {
+        scale = Math.max(1, scale - 0.2);
+        modalImg.style.transform = `scale(${scale})`;
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            modal.classList.remove("active");
+            modalImg.src = "";
+        }
+    });
 
     // Theme Toggle with Local Storage
     const themeButton = document.getElementById('theme-button');

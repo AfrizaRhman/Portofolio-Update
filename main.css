@@ -48,10 +48,11 @@
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f5f5f5;
   --color-bg-footer: #f0f0f0;
-  --color-white: #333333; /* Changed to dark for text in light theme */
+  --color-white: #333333;
+  /* Changed to dark for text in light theme */
   --color-text: #333333;
   --color-border: #e0e0e0;
-  
+
   /* Adjust primary colors for better contrast in light theme */
   --color-primary: #208c61;
   --color-primary-dark: #176b48;
@@ -64,7 +65,8 @@
   --color-bg-secondary: #242424;
   --color-bg-footer: #151515;
   --color-white: #ffffff;
-  --color-text: #a1a1a1; /* Changed to your requested color */
+  --color-text: #a1a1a1;
+  /* Changed to your requested color */
   --color-border: #373737;
   --color-primary: #25ab75;
   --color-primary-dark: #208c61;
@@ -117,13 +119,15 @@
 
 /* Typewriter color */
 #typewriter {
-  color: var(--color-white); /* Default white for dark theme */
+  color: var(--color-white);
+  /* Default white for dark theme */
   display: block;
   min-height: 30px;
 }
 
 .light-theme #typewriter {
-  color: var(--color-text); /* Dark color for light theme */
+  color: var(--color-text);
+  /* Dark color for light theme */
 }
 
 /* Service cards */
@@ -318,22 +322,22 @@
   .light-theme .nav__menu {
     background-color: var(--color-bg-primary);
   }
-  
+
   .light-theme .nav__link {
     color: var(--color-text);
   }
-  
+
   .light-theme .nav__link:hover {
     color: var(--color-primary);
   }
-  
+
   #theme-button {
     position: absolute;
     right: 70px;
     top: 50%;
     transform: translateY(-50%);
   }
-  
+
   .nav__list {
     display: flex;
     flex-direction: column;
@@ -522,72 +526,96 @@ body {
 }
 
 /* =====================
-   CERTIFICATE SECTION
+   CERTIFICATE GRID
 ===================== */
 .certificate__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 40px;
-  align-items: start;
 }
 
-/* CARD */
 .certificate__item {
-  background-color: #111111;
+  background-color: #111;
   border-radius: 14px;
   border: 1px solid #2a2a2a;
+  aspect-ratio: 16 / 11;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  /* BIKIN SEMUA CARD SAMA */
-  aspect-ratio: 16 / 11;
+  transition: 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* IMAGE */
 .certificate__item img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* SERTIFIKAT UTUH */
+  object-fit: contain;
   padding: 12px;
-  background-color: #000;
+  background: #000;
 }
 
-/* HOVER EFFECT */
 .certificate__item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .55);
 }
 
 /* =====================
-   LIGHT THEME
+   MODAL
 ===================== */
-body.light-theme .certificate__item {
-  background-color: #ffffff;
-  border-color: #e5e7eb;
+.certificate__modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-body.light-theme .certificate__item img {
-  background-color: #f9fafb;
+.certificate__modal.active {
+  display: flex;
 }
 
-body.light-theme .certificate__item:hover {
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+.certificate__modal img {
+  max-width: 90%;
+  max-height: 80%;
+  transform: scale(1);
+  transition: transform .3s ease;
+}
+
+/* CLOSE BUTTON */
+.modal__close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ZOOM CONTROLS */
+.modal__controls {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  gap: 16px;
+}
+
+.modal__controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 /* =====================
    RESPONSIVE
 ===================== */
-@media (max-width: 1200px) {
-  .certificate__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: 900px) {
   .certificate__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1196,7 +1224,8 @@ body.light-theme .certificate__item:hover {
 
 /* Batasi tinggi paragraf (deskripsi), potong dengan ellipsis */
 .qualification__description-2 {
-  max-height: 4.5em; /* kira2 3 baris */
+  max-height: 4.5em;
+  /* kira2 3 baris */
   overflow: hidden;
   position: relative;
 }
@@ -1210,10 +1239,11 @@ body.light-theme .certificate__item:hover {
 .modal {
   position: fixed;
   z-index: 1000;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1236,7 +1266,7 @@ body.light-theme .certificate__item:hover {
   max-width: 500px;
   width: 90%;
   position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   /* default posisi di tengah */
   transform: translateY(100px);
@@ -1258,19 +1288,19 @@ body.light-theme .certificate__item:hover {
 }
 
 .close-btn {
-position: absolute;
-top: 1rem;
-right: 1rem;
-font-size: 2rem;
-font-weight: bold;
-cursor: pointer;
-color: #333;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
 }
 
 .modal-content img {
-max-width: 100%;
-margin-top: 1rem;
-border-radius: 4px;
+  max-width: 100%;
+  margin-top: 1rem;
+  border-radius: 4px;
 }
 
 
