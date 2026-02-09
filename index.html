@@ -331,57 +331,51 @@
 
 
         <!--=================== services ====================-->
-        <section id="services" class="section services" style="padding: 80px 0; background-color: inherit;">
-            <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-                <h2 style="font-size: 32px; font-weight: bold; text-align: center; color: white; margin-bottom: 32px;">
-                    Services
-                </h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+        <section id="services" class="section services">
+            <div class="services__container">
+
+                <h2 class="services__title">Services</h2>
+
+                <div class="services__grid">
+
                     <!-- UI/UX Design -->
-                    <div
-                        style="background-color: black; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
-                        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-                            <i class="ri-pen-nib-fill" style="font-size: 40px; color: #9f7aea;"></i>
+                    <div class="service__card">
+                        <div class="service__icon purple">
+                            <i class="ri-pen-nib-fill"></i>
                         </div>
-                        <h3
-                            style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
-                            UX Design
-                        </h3>
-                        <p style="color: #718096; text-align: center;">UX (User Experience) Designer punya tugas utama
-                            memastikan pengguna merasa nyaman, mudah, dan puas saat memakai sebuah produk digital
-                            (website, aplikasi, sistem, dll). Bukan cuma soal tampilan, tapi pengalaman keseluruhan
-                            pengguna.</p>
+                        <h3 class="service__card-title">UX Design</h3>
+                        <p class="service__card-desc">
+                            UX (User Experience) Designer punya tugas utama memastikan pengguna merasa nyaman,
+                            mudah, dan puas saat memakai sebuah produk digital (website, aplikasi, sistem, dll).
+                            Bukan cuma soal tampilan, tapi pengalaman keseluruhan pengguna.
+                        </p>
                     </div>
 
                     <!-- Full-Stack Projects -->
-                    <div
-                        style="background-color: black; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
-                        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-                            <i class="ri-code-s-slash-line" style="font-size: 40px; color: #48bb78;"></i>
+                    <div class="service__card">
+                        <div class="service__icon green">
+                            <i class="ri-code-s-slash-line"></i>
                         </div>
-                        <h3
-                            style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
-                            Full-Stack Projects
-                        </h3>
-                        <p style="color: #718096; text-align: center;">Seorang Fullstack Developer bertugas sebagai
-                            pengembang aplikasi web secara menyeluruh, yaitu menangani bagian front-end (tampilan) dan
-                            back-end (logika dan server) sekaligus.</p>
+                        <h3 class="service__card-title">Full-Stack Projects</h3>
+                        <p class="service__card-desc">
+                            Seorang Fullstack Developer bertugas sebagai pengembang aplikasi web secara
+                            menyeluruh, yaitu menangani bagian front-end (tampilan) dan back-end
+                            (logika dan server) sekaligus.
+                        </p>
                     </div>
 
                     <!-- Mobile App Development -->
-                    <div
-                        style="background-color: black; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;">
-                        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-                            <i class="ri-smartphone-line" style="font-size: 40px; color: #319795;"></i>
+                    <div class="service__card">
+                        <div class="service__icon teal">
+                            <i class="ri-smartphone-line"></i>
                         </div>
-                        <h3
-                            style="font-size: 20px; font-weight: 600; text-align: center; margin-bottom: 8px; color: white;">
-                            Mobile App Development
-                        </h3>
-                        <p style="color: #718096; text-align: center;">Seorang Android Developer bertugas sebagai
-                            pengembang aplikasi untuk perangkat yang menggunakan sistem operasi Android (seperti
-                            smartphone, tablet, atau wearable).</p>
+                        <h3 class="service__card-title">Mobile App Development</h3>
+                        <p class="service__card-desc">
+                            Seorang Android Developer bertugas sebagai pengembang aplikasi untuk perangkat
+                            yang menggunakan sistem operasi Android seperti smartphone, tablet, atau wearable.
+                        </p>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -684,7 +678,7 @@
                 zoomLevel = 1;
                 updateZoom();
             });
-        }        
+        }
 
         if (zoomOut) {
             zoomOut.addEventListener("click", e => {
@@ -711,59 +705,60 @@
     });
 
 
-    // Theme Toggle with Local Storage
-    const themeButton = document.getElementById('theme-button');
-    const lightTheme = 'light-theme';
-    const sunIcon = 'fa-sun';
-    const moonIcon = 'fa-moon';
+    document.addEventListener("DOMContentLoaded", () => {
 
-    // Cek tema yang disimpan di localStorage atau default dark
-    const getCurrentTheme = () => {
-        const savedTheme = localStorage.getItem('theme');
-        return savedTheme || 'dark'; // default dark
-    };
+        const themeButton = document.getElementById("theme-button");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.querySelector(".nav__menu");
 
-    const getCurrentIcon = () => {
-        const savedIcon = localStorage.getItem('icon');
-        return savedIcon || moonIcon; // default moon
-    };
+        const lightTheme = "light-theme";
+        const sunIcon = "fa-sun";
+        const moonIcon = "fa-moon";
 
-    // Terapkan tema saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentTheme = getCurrentTheme();
-        const currentIcon = getCurrentIcon();
+        if (!themeButton) return;
 
-        if (currentTheme === 'light') {
+        // ================= THEME STORAGE =================
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        const savedIcon = localStorage.getItem("icon") || moonIcon;
+
+        if (savedTheme === "light") {
             document.body.classList.add(lightTheme);
         }
 
         themeButton.classList.remove(sunIcon, moonIcon);
-        themeButton.classList.add(currentIcon);
+        themeButton.classList.add(savedIcon);
 
-        // Update typewriter color berdasarkan tema
-        updateTypewriterColor();
-    });
+        // ================= TOGGLE THEME =================
+        themeButton.addEventListener("click", () => {
+            document.body.classList.toggle(lightTheme);
 
-    // Toggle tema
-    themeButton.addEventListener('click', () => {
-        document.body.classList.toggle(lightTheme);
+            const isLight = document.body.classList.contains(lightTheme);
 
-        const isLightTheme = document.body.classList.contains(lightTheme);
+            themeButton.classList.toggle(sunIcon, isLight);
+            themeButton.classList.toggle(moonIcon, !isLight);
 
-        if (isLightTheme) {
-            themeButton.classList.remove(moonIcon);
-            themeButton.classList.add(sunIcon);
-            localStorage.setItem('theme', 'light');
-            localStorage.setItem('icon', sunIcon);
-        } else {
-            themeButton.classList.remove(sunIcon);
-            themeButton.classList.add(moonIcon);
-            localStorage.setItem('theme', 'dark');
-            localStorage.setItem('icon', moonIcon);
-        }
+            localStorage.setItem("theme", isLight ? "light" : "dark");
+            localStorage.setItem("icon", isLight ? sunIcon : moonIcon);
+        });
 
-        // Update typewriter color
-        updateTypewriterColor();
+        // ================= RESPONSIVE POSITION =================
+        const moveThemeIcon = () => {
+            if (window.innerWidth <= 768) {
+                // MOBILE → pindah ke sebelah toggle
+                if (!navToggle.contains(themeButton)) {
+                    navToggle.parentElement.insertBefore(themeButton, navToggle);
+                }
+            } else {
+                // DESKTOP → balik ke menu
+                const themeItem = document.querySelector(".nav__theme");
+                if (themeItem && !themeItem.contains(themeButton)) {
+                    themeItem.appendChild(themeButton);
+                }
+            }
+        };
+
+        moveThemeIcon();
+        window.addEventListener("resize", moveThemeIcon);
     });
 
     // Fungsi untuk update warna typewriter

@@ -525,40 +525,88 @@ body {
   color: var(--color-white);
 }
 
+/* ================= THEME VARIABLES ================= */
+:root {
+  --certificate-card-bg: #111111;
+  --certificate-border: #2a2a2a;
+  --certificate-image-bg: #000000;
+  --certificate-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+}
+
+/* LIGHT THEME */
+body.light-theme {
+  --certificate-card-bg: #ffffff;
+  --certificate-border: #e5e7eb;
+  --certificate-image-bg: #f9fafb;
+  --certificate-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+}
+
 /* =====================
    CERTIFICATE GRID
 ===================== */
 .certificate__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   margin-top: 40px;
 }
 
+/* =====================
+   CERTIFICATE CARD
+===================== */
 .certificate__item {
-  background-color: #111;
+  background-color: var(--certificate-card-bg);
   border-radius: 14px;
-  border: 1px solid #2a2a2a;
+  border: 1px solid var(--certificate-border);
   aspect-ratio: 16 / 11;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover hanya efek elevasi, TIDAK ganti warna */
+@media (hover: hover) {
+  .certificate__item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--certificate-shadow);
+  }
+}
+
+/* =====================
+   IMAGE
+===================== */
 .certificate__item img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   padding: 12px;
-  background: #000;
+  background-color: var(--certificate-image-bg);
+  transition: transform 0.3s ease;
 }
 
-.certificate__item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, .55);
+/* Zoom halus saat hover */
+@media (hover: hover) {
+  .certificate__item:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* =====================
+   SMALL DEVICES
+===================== */
+@media (max-width: 480px) {
+  .certificate__grid {
+    gap: 16px;
+  }
+
+  .certificate__item img {
+    padding: 10px;
+  }
 }
 
 /* =====================
@@ -627,6 +675,21 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile & tablet */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Desktop besar */
+@media (min-width: 1024px) {
+  .nav__actions {
+    display: none;
+  }
+}
+
 
 
 /* Header
@@ -952,6 +1015,141 @@ body {
 .skills__item i {
   color: var(--color-primary);
 }
+
+/* ================= THEME VARIABLES ================= */
+:root {
+  --section-bg: transparent;
+  --card-bg: #000000;
+  --title-color: #ffffff;
+  --text-color: #d1d5db;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* ================= LIGHT THEME ================= */
+body.light-theme {
+  --card-bg: #ffffff;
+  --title-color: #111827;
+  --text-color: #374151;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= SECTION ================= */
+.services {
+  padding: 6rem 0;
+  background-color: var(--section-bg);
+}
+
+.services__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
+/* ================= TITLE ================= */
+.services__title {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  color: var(--title-color);
+  margin-bottom: 3rem;
+  line-height: 1.25;
+}
+
+/* ================= GRID ================= */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.75rem;
+}
+
+/* ================= CARD ================= */
+.service__card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover hanya efek elevasi, TANPA ubah warna */
+@media (hover: hover) {
+  .service__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ================= ICON ================= */
+.service__icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.5rem, 6vw, 3rem);
+}
+
+.service__icon.purple {
+  color: #9f7aea;
+}
+
+.service__icon.green {
+  color: #48bb78;
+}
+
+.service__icon.teal {
+  color: #319795;
+}
+
+/* ================= TEXT ================= */
+.service__card-title {
+  font-size: clamp(2.65rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  color: var(--title-color);
+}
+
+.service__card-desc {
+  font-size: clamp(1.45rem, 3vw, 1.1rem);
+  font-weight: 400;
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.75;
+}
+
+/* ================= SMALL MOBILE (≤ 360px) ================= */
+@media (max-width: 360px) {
+  .services {
+    padding: 4.5rem 0;
+  }
+
+  .services__grid {
+    gap: 1.75rem;
+  }
+
+  .service__card {
+    padding: 1.5rem;
+  }
+}
+
+/* ================= TABLET (≥ 768px) ================= */
+@media (min-width: 768px) {
+  .services {
+    padding: 7rem 0;
+  }
+
+  .services__grid {
+    gap: 3rem;
+  }
+}
+
+/* ================= LARGE DESKTOP (≥ 1400px) ================= */
+@media (min-width: 1400px) {
+  .services__container {
+    max-width: 1320px;
+  }
+}
+
 
 /* Qualification
   --------------------------------------------------------------*/
