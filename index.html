@@ -476,30 +476,49 @@
 
                 <div class="certificate__grid">
                     <div class="certificate__item">
-                        <img src="assets/img/Certificate Code Politan.png" alt="Certificate 1">
+                        <img src="assets/img/Certificate Code Politan.png" alt="Certificate Code Politan">
                     </div>
                     <div class="certificate__item">
-                        <img src="assets/img/Certificate E-Learning.png" alt="Certificate 2">
+                        <img src="assets/img/Certificate E-Learning.png" alt="Certificate E-Learning">
                     </div>
                     <div class="certificate__item">
-                        <img src="assets/img/sertifikat_course_123_3477643_021123121753 (1)-1.png" alt="Certificate 3">
+                        <img src="assets/img/sertifikat_course_123_3477643_021123121753 (1)-1.png"
+                            alt="Certificate Course 123">
                     </div>
                     <div class="certificate__item">
-                        <img src="assets/img/sertifikat_course_169_3477643_130824095047-1.png" alt="Certificate 4">
+                        <img src="assets/img/sertifikat_course_169_3477643_130824095047-1.png"
+                            alt="Certificate Course 169">
                     </div>
-
-                    <div class="certificate__item"><img src="assets/img/wahdani-1.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-2.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-3.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-4.png"></div>
-
-                    <div class="certificate__item"><img src="assets/img/wahdani-5.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-6.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-7.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-8.png"></div>
-
-                    <div class="certificate__item"><img src="assets/img/wahdani-9.png"></div>
-                    <div class="certificate__item"><img src="assets/img/wahdani-10.png"></div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-1.png" alt="Certificate Wahdani 1">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-2.png" alt="Certificate Wahdani 2">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-3.png" alt="Certificate Wahdani 3">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-4.png" alt="Certificate Wahdani 4">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-5.png" alt="Certificate Wahdani 5">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-6.png" alt="Certificate Wahdani 6">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-7.png" alt="Certificate Wahdani 7">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-8.png" alt="Certificate Wahdani 8">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-9.png" alt="Certificate Wahdani 9">
+                    </div>
+                    <div class="certificate__item">
+                        <img src="assets/img/wahdani-10.png" alt="Certificate Wahdani 10">
+                    </div>
                 </div>
             </div>
         </section>
@@ -509,20 +528,13 @@
             <i class="fa-solid fa-xmark modal__close"></i>
 
             <div class="modal__controls">
-                <button id="zoomIn"><i class="fa-solid fa-plus"></i></button>
-                <button id="zoomOut"><i class="fa-solid fa-minus"></i></button>
+                <button id="certZoomOut"><i class="fa-solid fa-minus"></i></button>
+                <button id="certResetZoom"><i class="fa-solid fa-arrows-rotate"></i></button>
+                <button id="certZoomIn"><i class="fa-solid fa-plus"></i></button>
             </div>
 
-            <img id="modalImage" src="" alt="Certificate Preview">
+            <img id="certificateModalImage" src="" alt="Certificate Preview">
         </div>
-
-
-
-        </div>
-        <div class="swiper-pagination"></div>
-        </div>
-        </div>
-        </section>
 
         <!--=================== Contact ====================-->
         <section id="contact" class="section contact">
@@ -603,54 +615,101 @@
 
 <script>
 
-    // Click image sertifikat
-    const modal = document.getElementById("certificateModal");
-    const modalImg = document.getElementById("modalImage");
-    const closeBtn = document.querySelector(".modal__close");
-    const zoomIn = document.getElementById("zoomIn");
-    const zoomOut = document.getElementById("zoomOut");
+    document.addEventListener("DOMContentLoaded", () => {
 
-    let scale = 1;
+        const modal = document.getElementById("certificateModal");
+        const modalImg = document.getElementById("certificateModalImage");
+        const closeBtn = modal.querySelector(".modal__close");
 
-    document.querySelectorAll(".certificate__item").forEach(item => {
-        item.addEventListener("click", () => {
-            const img = item.querySelector("img");
+        const zoomIn = document.getElementById("certZoomIn");
+        const zoomOut = document.getElementById("certZoomOut");
+        const resetZoom = document.getElementById("certResetZoom");
 
-            modal.classList.add("active");
-            modalImg.src = img.getAttribute("src"); // 🔥 FIX
-            modalImg.style.transform = "scale(1)";
-            scale = 1;
+        // ⛔ Kalau modal TIDAK ADA → stop script
+        if (!modal || !modalImg) {
+            console.warn("⚠️ Modal certificate tidak ditemukan");
+            return;
+        }
+
+        let scale = 1;
+
+        // ================= CLICK CERTIFICATE =================
+        document.querySelectorAll(".certificate__item img").forEach(img => {
+            img.addEventListener("click", e => {
+                e.stopPropagation();
+
+                const src = img.getAttribute("src");
+                const alt = img.getAttribute("alt") || "Certificate Preview";
+
+                modalImg.src = src;
+                modalImg.alt = alt;
+                modalImg.style.transform = "scale(1)";
+                scale = 1;
+
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // ================= CLOSE MODAL =================
+        function closeModal() {
+            modal.classList.remove("active");
+            modalImg.src = "";
+            document.body.style.overflow = "";
+        }
+
+        modal.addEventListener("click", closeModal);
+        modalImg.addEventListener("click", e => e.stopPropagation());
+
+        if (closeBtn) {
+            closeBtn.addEventListener("click", e => {
+                e.stopPropagation();
+                closeModal();
+            });
+        }
+
+        // ================= ZOOM =================
+        if (zoomIn) {
+            zoomIn.addEventListener("click", e => {
+                e.stopPropagation();
+                scale = Math.min(scale + 0.2, 3);
+                modalImg.style.transform = `scale(${scale})`;
+            });
+        }
+
+        if (img) {
+            img.addEventListener("click", function () {
+                zoomModal.style.display = "block";
+                modalImg.src = this.src;
+                zoomLevel = 1;
+                updateZoom();
+            });
+        }        
+
+        if (zoomOut) {
+            zoomOut.addEventListener("click", e => {
+                e.stopPropagation();
+                scale = Math.max(scale - 0.2, 1);
+                modalImg.style.transform = `scale(${scale})`;
+            });
+        }
+
+        if (resetZoom) {
+            resetZoom.addEventListener("click", e => {
+                e.stopPropagation();
+                scale = 1;
+                modalImg.style.transform = "scale(1)";
+            });
+        }
+
+        // ================= ESC =================
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape" && modal.classList.contains("active")) {
+                closeModal();
+            }
         });
     });
 
-    closeBtn.addEventListener("click", () => {
-        modal.classList.remove("active");
-        modalImg.src = "";
-    });
-
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.classList.remove("active");
-            modalImg.src = "";
-        }
-    });
-
-    zoomIn.addEventListener("click", () => {
-        scale += 0.2;
-        modalImg.style.transform = `scale(${scale})`;
-    });
-
-    zoomOut.addEventListener("click", () => {
-        scale = Math.max(1, scale - 0.2);
-        modalImg.style.transform = `scale(${scale})`;
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            modal.classList.remove("active");
-            modalImg.src = "";
-        }
-    });
 
     // Theme Toggle with Local Storage
     const themeButton = document.getElementById('theme-button');
@@ -736,6 +795,7 @@
 
         // Update the text content with the next character
         typewriterElement.textContent = currentText.slice(0, charIndex);
+        if (!typewriterElement) return;
 
         // Increment the character index
         charIndex++;
