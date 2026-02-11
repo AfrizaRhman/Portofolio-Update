@@ -135,11 +135,6 @@
   background-color: var(--color-bg-secondary);
 }
 
-.light-theme .service__card:hover {
-  background-color: var(--color-primary);
-  color: #ffffff;
-}
-
 .light-theme .service__card:hover .service__title,
 .light-theme .service__card:hover .service__description {
   color: #ffffff;
@@ -149,7 +144,7 @@
   color: var(--color-primary);
 }
 
-.light-theme .service__card:hover .service__icon {
+.light-theme .service__card:hover {
   color: #ffffff;
 }
 
@@ -609,6 +604,157 @@ body.light-theme {
   }
 }
 
+/* =========================
+   WRAPPER
+========================= */
+.logo-wrapper{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  padding:20px 0;
+}
+
+/* Fade kiri kanan biar smooth */
+.logo-wrapper::before,
+.logo-wrapper::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:120px;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+
+.logo-wrapper::before{
+  left:0;
+  background:linear-gradient(
+    to right,
+    var(#1a1a1a) 0%,
+    transparent 100%
+  );
+}
+
+.logo-wrapper::after{
+  right:0;
+  background:linear-gradient(
+    to left,
+    var(#ffffff) 0%,
+    transparent 100%
+  );
+}
+
+/* =========================
+   TRACK (BARIS)
+========================= */
+.logo-track{
+  display:flex;
+  width:max-content;
+}
+
+/* Set icon */
+.logo-set{
+  display:flex;
+  align-items:center;
+  gap:70px;
+  padding:0 35px;
+}
+
+/* Icon */
+.logo-set i{
+  font-size:48px;
+  transition:0.3s ease;
+}
+
+/* Hover effect */
+.logo-set i:hover{
+  transform:scale(1.2);
+  filter:drop-shadow(0 0 10px rgba(255,255,255,0.6));
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+/* Gerak ke kanan */
+.move-right{
+  animation:scrollRight 25s linear infinite;
+}
+
+/* Gerak ke kiri */
+.move-left{
+  animation:scrollLeft 25s linear infinite;
+}
+
+@keyframes scrollRight{
+  from{
+    transform:translateX(-50%);
+  }
+  to{
+    transform:translateX(0%);
+  }
+}
+
+@keyframes scrollLeft{
+  from{
+    transform:translateX(0%);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+
+/* Laptop */
+@media(max-width:1200px){
+  .logo-set{
+    gap:50px;
+  }
+  .logo-set i{
+    font-size:40px;
+  }
+}
+
+/* Tablet */
+@media(max-width:992px){
+  .logo-set{
+    gap:40px;
+  }
+  .logo-set i{
+    font-size:34px;
+  }
+}
+
+/* HP Besar */
+@media(max-width:768px){
+  .logo-set{
+    gap:30px;
+  }
+  .logo-set i{
+    font-size:28px;
+  }
+  .logo-wrapper::before,
+  .logo-wrapper::after{
+    width:60px;
+  }
+}
+
+/* HP Kecil */
+@media(max-width:480px){
+  .logo-set{
+    gap:20px;
+  }
+  .logo-set i{
+    font-size:22px;
+  }
+  .logo-wrapper{
+    padding:10px 0;
+  }
+}
+
 /* =====================
    MODAL
 ===================== */
@@ -643,22 +789,38 @@ body.light-theme {
   cursor: pointer;
 }
 
-/* ZOOM CONTROLS */
-.modal__controls {
-  position: absolute;
-  bottom: 30px;
-  display: flex;
-  gap: 16px;
+/* =========================
+   ZOOM CONTROLS (FIX)
+========================= */
+.modal__controls{
+  position:fixed;          /* 🔥 FIX UTAMA */
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:36px;
+  z-index:9999;            /* 🔥 PASTI DI ATAS IMAGE */
 }
 
-.modal__controls button {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: #fff;
-  cursor: pointer;
-  font-size: 18px;
+/* BUTTON */
+.modal__controls button{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:none;
+  background:#ffffff;
+  cursor:pointer;
+  font-size:22px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transition:0.2s ease;
+}
+
+/* HOVER */
+.modal__controls button:hover{
+  transform:scale(1.15);
+  background:#c7c7c7;
+  color:#020617;
 }
 
 /* =====================
@@ -1514,9 +1676,7 @@ body.light-theme {
   transition: var(--transition);
 }
 
-.service__card:hover {
-  background-color: var(--color-primary);
-}
+
 
 .service__card:hover .service__link {
   color: var(--color-white);
